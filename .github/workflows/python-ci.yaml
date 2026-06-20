@@ -25,8 +25,13 @@ jobs:
         with: 
           python-version: ${{ env.PYTHON_VERSION }}
       
-      - name: Install Dev Dependencies
+      - name: Install Dev Dependencies (Staging)
+        if: github.ref == 'refs/heads/staging'
         run: pip install -r app/requirements-dev.txt
+      
+      - name: Install Dev Dependencies (Production)
+        if: github.ref == 'refs/heads/main'
+        run: pip install -r app/requirements.txt
 
       - name: Run Flake8
         run: flake8 app/
