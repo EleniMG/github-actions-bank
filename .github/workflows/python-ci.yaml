@@ -25,5 +25,10 @@ jobs:
         with: 
           python-version: ${{ env.PYTHON_VERSION }}
       
+      - name: Install Dev Dependencies
+        run: pip install -r app/requirements-dev.txt
 
+      - name: Run Flake8
+        run: flake8 app/
+        continue-on-error: true
         
