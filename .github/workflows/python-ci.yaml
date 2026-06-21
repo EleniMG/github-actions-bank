@@ -38,10 +38,14 @@ jobs:
         continue-on-error: true
   
   test:
-    name: Test Python
+    name: Test Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.13"]
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -49,7 +53,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5.6.0
         with: 
-          python-version: ${{ env.PYTHON_VERSION }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Install Dev Dependencies
         run: | 
