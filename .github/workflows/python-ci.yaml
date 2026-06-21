@@ -62,3 +62,9 @@ jobs:
 
       - name: Run Pytest
         run: python -m pytest source/tests/tests.py -v --junitxml="version-${{ matrix.python-version }}-pytest-results.xml"
+
+      - name: Upload Pytest Results Artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: version-${{ matrix.python-version }}-pytest-results
+          path: version-${{ matrix.python-version }}-pytest-results.xml
