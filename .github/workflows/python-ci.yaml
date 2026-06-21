@@ -50,3 +50,11 @@ jobs:
         uses: actions/setup-python@v5.6.0
         with: 
           python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install Dev Dependencies
+        run: | 
+          pip install -r app/requirements-dev.txt
+          pip install -r app/requirements.txt
+
+      - name: Run Pytest
+        run: python -m pytest source/tests/tests.py -v --junitxml="version-${{ matrix.python-version }}-pytest-results.xml"
