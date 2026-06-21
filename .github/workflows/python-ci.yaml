@@ -36,4 +36,9 @@ jobs:
       - name: Run Flake8
         run: flake8 app/
         continue-on-error: true
-        
+  
+  test:
+    name: Test Python
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
