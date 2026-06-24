@@ -29,14 +29,14 @@ jobs:
       
       - name: Install Dev Dependencies (Staging)
         if: github.ref == 'refs/heads/staging'
-        run: pip install -r app/requirements-dev.txt
+        run: pip install -r requirements-dev.txt
       
       - name: Install Dev Dependencies (Production)
         if: github.ref == 'refs/heads/main'
-        run: pip install -r app/requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Run Flake8
-        run: flake8 app/
+        run: flake8 source/
         continue-on-error: true
   
   test:
@@ -59,8 +59,8 @@ jobs:
 
       - name: Install Dev Dependencies
         run: | 
-          pip install -r app/requirements-dev.txt
-          pip install -r app/requirements.txt
+          pip install -r requirements-dev.txt
+          pip install -r requirements.txt
 
       - name: Run Pytest
         run: python -m pytest source/tests/tests.py -v --junitxml="version-${{ matrix.python-version }}-pytest-results.xml"
