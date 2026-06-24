@@ -23,7 +23,7 @@ jobs:
         id: create-tag
         run: echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       
-       # This step is required as the GHCR repository owner name must be lower case in order to build and push images.
+      # This step is required as the GHCR repository owner name must be lower case in order to build and push images.
       - name: Lowercase GitHub Repo Owner Name
         id: lowercase-github-repo-owner-name
         run: echo "GITHUB_REPO_OWNER=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
