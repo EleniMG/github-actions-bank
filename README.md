@@ -4,6 +4,10 @@ This repo is a place to store various GitHub Actions pipelines.
 
 See the [vulnerability-scanners](https://github.com/EleniMG/vulnerability-scanners) for Trivy, npm and pnpm repo and Docker scans.
 
+## Contents
+- python-ci.yaml - Lint, Pytest, Slack Notification
+- docker-build.yaml - Prep env vars, Docker Build & Push, Trivy Scan
+
 ## Upcoming additions
 
 ### Core CI/CD
