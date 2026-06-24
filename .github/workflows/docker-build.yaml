@@ -6,3 +6,16 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: my-image
+
+jobs:
+  prepare-env-vars:
+    name: Prepare env vars
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Create Tag
+        id: create-tag
+        run: echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
