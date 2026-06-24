@@ -27,11 +27,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     needs: prepare-env-vars
-    permissions:
-      contents: read
-      packages: write
-      attestations: write
-      id-token: write
 
     steps:
       - name: Checkout
