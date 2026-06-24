@@ -68,3 +68,11 @@ jobs:
         with:
           name: version-${{ matrix.python-version }}-pytest-results
           path: version-${{ matrix.python-version }}-pytest-results.xml
+
+  docker-build:
+    name: Docker Build
+    uses: ./.github/workflows/docker-build.yml
+    needs:
+      - lint
+      - test
+  
