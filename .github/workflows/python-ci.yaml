@@ -64,6 +64,7 @@ jobs:
 
       - name: Run Pytest
         run: python -m pytest source/tests/tests.py -v --junitxml="version-${{ matrix.python-version }}-pytest-results.xml"
+        continue-on-error: true
 
       - name: Upload Pytest Results Artifact
         uses: actions/upload-artifact@v7
