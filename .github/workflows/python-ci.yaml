@@ -71,7 +71,7 @@ jobs:
 
   docker-build:
     name: Docker Build
-    uses: ./.github/workflows/docker-build.yml
+    uses: ./.github/workflows/docker-build.yaml
     needs:
       - lint
       - test
