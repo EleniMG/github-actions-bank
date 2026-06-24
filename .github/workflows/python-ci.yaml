@@ -2,6 +2,8 @@ name: Python CI
 
 on:
   push:
+    branch:
+      - main
     paths:
       - 'source/**'
   pull_request:
