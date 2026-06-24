@@ -57,4 +57,5 @@ jobs:
           severity: 'CRITICAL,HIGH'
       
       - name: Push Docker Image to GitHub Container Registry
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: docker push ${{ env.REGISTRY }}/${{ needs.prepare-env-vars.outputs.GITHUB_REPO_OWNER }}/${{ env.IMAGE_NAME }}:${{ needs.prepare-env-vars.outputs.SHORT_SHA }}
