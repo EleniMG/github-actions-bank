@@ -86,7 +86,7 @@ jobs:
     
   slack-notification-on-failure:
     name: Slack Notification on failure
-    if: github.ref == 'refs/heads/main' && needs.docker-build.result == 'failure'
+    if: always() && github.ref == 'refs/heads/main' && needs.docker-build.result == 'failure'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     needs:
