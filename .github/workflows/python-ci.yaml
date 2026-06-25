@@ -98,4 +98,4 @@ jobs:
           webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
           webhook-type: incoming-webhook
           payload: |
-            text: "Test"
+            text: "*<!here> Docker Build Failed!*\nClick <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|here> for the workflow run"
