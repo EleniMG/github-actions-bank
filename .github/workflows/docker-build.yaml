@@ -46,7 +46,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Docker Build
-        run: docker build -t ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ needs.prepare-env-vars.outputs.SHORT_SHA }} -f source/Dockerfile ./source
+        run: docker build -t ${{ env.REGISTRY }}/${{ needs.prepare-env-vars.outputs.GITHUB_REPO_OWNER }}/${{ env.IMAGE_NAME }}:${{ needs.prepare-env-vars.outputs.SHORT_SHA }} -f source/Dockerfile ./source
       
       - name: Generate Trivy Report
         uses: aquasecurity/trivy-action@v0.36.0
